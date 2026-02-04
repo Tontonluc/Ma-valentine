@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Une Surprise pour Toi  Luna 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffd1dc, #fff);
+  text-align: center;
+  overflow-x: hidden;
+}
+  .love-img {
+  width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #e91e63;
+}
+
+.question {
+  font-size: 22px;
+  margin: 20px 0;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+button {
+  padding: 15px 35px;
+  margin: 10px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #e91e63;
+  color: white;
+}
+
+.yes:hover {
+  background: #d81b60;
+  transform: scale(1.1);
+}
+
+.no {
+  background: #ccc;
+}
+
+.result {
+  display: none;
+  margin-top: 40px;
+}
+
+.result img {
+  width: 220px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.poem {
+  color: #e91e63;
+  font-size: 18px;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* Cœurs animés */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 24px;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+ <audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c6b1f0c0a.mp3" type="audio/mpeg">
+</audio> 
+
+<div class="container">
+  <h1>💌 Une question très spéciale Luna 🥰💀🎂…</h1>
+
+  <div class="question">
+    Es-tu prête pour une aventure remplie de tendresse, de rires et d’amour ? 💕
+  </div>
+
+  <div class="buttons">
+    <button class="yes" onclick="accept()">Oui 💖</button>
+    <button class="no" onclick="decline()">Non 😅</button>
+  </div>
+
+  <div class="result" id="yesResult">
+    <h1>❤️ Merci d’avoir dit oui Ma bibi ❤️</h1>
+
+    <!-- 🔽 ICI TU METS SA PHOTO 🔽 -->
+    <!-- Remplace photo.jpg par le vrai nom -->
+    <img src="https://i.imgur.com/8Km9tLL.gif" class="love-img">
+
+    <div class="poem">
+      Dans le jardin de mon cœur, tu es la plus belle fleur,<br>
+      Mon sourire chaque jour s’allume grâce à ta douce lueur.<br>
+      Ensemble, nos rêves tissent une tendre couleur,<br>
+      Reste ma Valentine, mon éclat, mon bonheur 🌸
+    </div>
+  </div>
+
+  <div class="result" id="noResult">
+    <h1>💔 D’accord…</h1>
+    <p>Même un non mérite douceur et respect 🌷</p>
+  </div>
+</div>
+
+<script>
+function accept() {
+  document.querySelector('.buttons').style.display = 'none';
+  document.getElementById('yesResult').style.display = 'block';
+  createHearts();
+}
+
+function decline() {
+  document.querySelector('.buttons').style.display = 'none';
+  document.getElementById('noResult').style.display = 'block';
+}
+
+function createHearts() {
+  for (let i = 0; i < 25; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, i * 200);
+  }
+}
+</script>
+
+</body>
+</html>
